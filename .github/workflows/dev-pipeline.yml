@@ -24,6 +24,7 @@ jobs:
       run: npm install
 
   job-2:
+    needs: job-1
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -32,6 +33,7 @@ jobs:
 
 
   job-3:
+    needs: job-2
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
