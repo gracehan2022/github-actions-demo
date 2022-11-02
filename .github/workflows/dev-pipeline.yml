@@ -1,9 +1,6 @@
 name: Pipeline demo
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   job-1:
