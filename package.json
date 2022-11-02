@@ -1,0 +1,20 @@
+{
+  "name": "github-actions-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo test",
+    "start": "echo start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gracehan2022/github-actions-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gracehan2022/github-actions-demo/issues"
+  },
+  "homepage": "https://github.com/gracehan2022/github-actions-demo#readme"
+}
