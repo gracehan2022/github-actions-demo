@@ -43,6 +43,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          ref: staging
       - name: Change something
         run: touch readme2.md
       - name: Commit and push changes
