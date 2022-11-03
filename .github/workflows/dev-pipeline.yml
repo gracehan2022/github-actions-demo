@@ -56,8 +56,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: List files
+        run: ls -al
       - name: Remove staging changes
-        run: rm exported/staging.md
+        run: rm ../exported/staging.md
       - name: Only sync dev
         uses: cpina/github-action-push-to-another-repository@main
         env:
