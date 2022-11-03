@@ -50,6 +50,7 @@ jobs:
         with:
           github_token: ${{ secrets.API_TOKEN_GITHUB }}
           commit_message: Generate a readme
+          target_branch: staging
 
   job-5:
     runs-on: ubuntu-latest
