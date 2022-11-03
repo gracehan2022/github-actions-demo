@@ -61,7 +61,7 @@ jobs:
       - name: Current path
         run: pwd
       - name: Remove staging changes
-        run: rm ../exported/staging.md
+        run: rm exported/staging.md
       - name: Only sync dev
         uses: cpina/github-action-push-to-another-repository@main
         env:
