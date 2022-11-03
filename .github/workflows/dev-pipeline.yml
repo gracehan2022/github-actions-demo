@@ -3,39 +3,39 @@ name: Pipeline demo
 on: workflow_dispatch
 
 jobs:
-  job-1:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+  # job-1:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [16.x]
+  #       # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Install dependencies
-      run: npm install
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Use Node.js ${{ matrix.node-version }}
+  #     uses: actions/setup-node@v3
+  #     with:
+  #       node-version: ${{ matrix.node-version }}
+  #       cache: 'npm'
+  #   - name: Install dependencies
+  #     run: npm install
 
-  job-2:
-    needs: job-1
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Test
-      run: npm run test
+  # job-2:
+  #   needs: job-1
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Test
+  #     run: npm run test
 
 
-  job-3:
-    needs: job-2
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Start
-      run: npm run start
+  # job-3:
+  #   needs: job-2
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Start
+  #     run: npm run start
 
   job-4:
     needs: job-3
@@ -44,7 +44,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Change something
-        run: touch readme.md
+        run: touch readme1.md
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@master
         with:
@@ -52,26 +52,26 @@ jobs:
           commit_message: Generate a readme
           target_branch: staging
 
-  job-5:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: List files
-        run: ls -al
-      - name: Current path
-        run: pwd
-      - name: Remove staging changes
-        run: rm exported/staging.md
-      - name: Only sync dev
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: 'exported'
-          destination-github-username: 'gracehan2022'
-          destination-repository-name: 'copy-destination'
-          user-email: grace@village-studio.com
-          target-branch: main
-          target-directory: exported
-          commit-message: update dev.md
+  # job-5:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
+  #     - name: List files
+  #       run: ls -al
+  #     - name: Current path
+  #       run: pwd
+  #     - name: Remove staging changes
+  #       run: rm exported/staging.md
+  #     - name: Only sync dev
+  #       uses: cpina/github-action-push-to-another-repository@main
+  #       env:
+  #         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+  #       with:
+  #         source-directory: 'exported'
+  #         destination-github-username: 'gracehan2022'
+  #         destination-repository-name: 'copy-destination'
+  #         user-email: grace@village-studio.com
+  #         target-branch: main
+  #         target-directory: exported
+  #         commit-message: update dev.md
