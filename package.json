@@ -1,7 +1,7 @@
 {
   "name": "github-actions-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "A demo repo",
   "main": "index.js",
   "scripts": {
     "test": "echo test",
