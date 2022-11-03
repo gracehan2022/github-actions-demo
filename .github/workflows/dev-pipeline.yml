@@ -72,5 +72,5 @@ jobs:
           destination-repository-name: 'copy-destination'
           user-email: grace@village-studio.com
           target-branch: main
-          target-directory: src/exported
+          target-directory: exported
           commit-message: update dev.md
