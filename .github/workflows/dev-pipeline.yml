@@ -54,6 +54,8 @@ jobs:
   job-5:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
       - name: Remove staging changes
         run: rm exported/staging.md
       - name: Only sync dev
