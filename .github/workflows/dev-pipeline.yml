@@ -57,10 +57,10 @@ jobs:
       - name: Remove staging changes
         run: rm exported/staging.md
       - name: Only sync dev
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
           source-directory: 'exported'
           destination-github-username: 'gracehan2022'
           destination-repository-name: 'copy-destination'
